@@ -1,0 +1,217 @@
+::root{
+    margin: 0;
+    padding: 0;
+    font-family: Ubuntu;    
+}
+
+.logo{
+    position: absolute;
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+div{
+    text-align: center;
+    margin: 0.5em;
+}
+
+textarea{
+    resize: none;    
+}
+
+textarea:focus, button:focus{
+    outline: none;
+}
+
+button{
+    background-color: teal;
+    border-radius: 5px;
+    height: 3em;
+    width: 10em;
+    color: white;
+    margin: 1em;
+}
+
+button:hover{
+    background-color: royalblue;
+}
+
+.main-container{
+    display: flex;    
+    margin-left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 10vh;
+    width: 93%;
+}
+
+.contactform{
+    display: flex;
+    flex-direction: column;
+}
+
+.contactform p{
+    font-family: Ubuntu;
+    width: 30%;
+    text-align: left;
+    padding-left: 3em;
+}
+
+.contactform span{
+    display: flex;  
+    width: 90%;
+    justify-content: space-evenly;
+}
+
+.contactform-elements, .contactform-textarea{
+    width: 60%;
+    height: 2em;
+    border-radius: 0.4em;
+    align-items: left;
+}
+
+.contactform-textarea{
+    height: 10em;    
+}
+
+.file-menu{
+    background-color: rgb(206, 199, 198);
+    border: 2px dashed red;
+    display: flex;
+    margin: auto;
+    width: 60%;    
+    justify-content: space-around;
+    padding: 1em;
+    margin-top: 1.5em;
+    border-radius: 5px;
+}
+
+#upload-csv{
+    display: flex;
+    flex-direction: column;
+    text-align: center;    
+    margin: auto;
+    cursor: pointer;    
+}
+
+/*========================================================================*/
+/*------------------------   Max-Screeen-Size : 345px     ----------------*/
+/*========================================================================*/
+
+@media screen and (max-width: 345px){
+
+    body{
+        font-size: .8em;
+    }
+    button{
+        width: 6em;
+    }
+
+    .main-container{
+        width: 100%;
+        top: 15vh;
+    }
+
+    textarea{
+        width: 80%;
+    }
+    .file-menu{
+        width: 70% !important;
+
+    }
+}
+
+
+/*========================================================================*/
+/*------------------------   Min-Screeen-Size : 345px     ----------------*/
+/*========================================================================*/
+
+@media screen and (min-width: 345px){
+
+    .main-container{
+        width: 100% ;
+    }
+    .contactform-elements, .contactform-textarea{
+        width: 50%;
+    }
+
+    .contactform p{        
+        padding-left: 1em;
+    }
+
+    textarea{
+        width: 80%;
+    }
+    .file-menu{
+        width: 80% !important;
+    }
+}
+
+
+/*========================================================================*/
+/*------------------------   Min-Screeen-Size : 600px     ----------------*/
+/*========================================================================*/
+@media screen and (min-width: 600px){
+
+    textarea{
+        width: 70%;
+    }
+
+    .file-menu{
+        width: 60% !important;
+    }
+}
+
+
+/*========================================================================*/
+/*------------------------   Min-Screeen-Size : 768px     ----------------*/
+/*========================================================================*/
+@media screen and (min-width: 768px){
+
+    textarea{
+        width: 65%;
+    }
+    
+    .contactform-elements, .contactform-textarea{
+        width: 60%;
+    }
+
+    .contactform p{        
+        padding-left: 1.3em;
+    }
+
+    .file-menu{
+        width: 80% ;
+    }
+}
+
+/*========================================================================*/
+/*------------------------   Min-Screeen-Size : 992px     ----------------*/
+/*========================================================================*/
+@media screen and (min-width: 992px){
+
+    .contactform p{        
+        padding-left: 2em;
+    }
+
+    textarea{
+        width: 60%;
+    }
+}
+
+/*========================================================================*/
+/*------------------------   Min-Screeen-Size : 1200px     ----------------*/
+/*========================================================================*/
+@media screen and (min-width: 1200px){
+
+    .contactform p{        
+        padding-left: 3em;
+    }
+
+    textarea{
+        width: 50%;
+    }
+}

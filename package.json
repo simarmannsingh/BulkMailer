@@ -1,0 +1,27 @@
+{
+  "name": "data4life",
+  "version": "1.0.0",
+  "description": "Coding Challenge for Data4Life",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "nodemailer",
+    "data4life",
+    "Emailsendingapp"
+  ],
+  "author": "Simar Mann Singh",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "nodemailer": "^6.4.13",
+    "papaparse": "^5.3.0"
+  },
+  "devDependencies": {
+    "jest": "^26.5.3"
+  }
+}
