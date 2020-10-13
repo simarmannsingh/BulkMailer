@@ -28,8 +28,8 @@ app.post('/', (req, res) => {
         port: 587,                                          // your.smtp.portnumber
         secure: false,                                      // true for port number: 465, false for other ports
         auth: {
-            user: 'antwan42@ethereal.email',                // your email used for authentication / ethereal user
-            pass: 'JdqVU2aBN8BYbSS4J3',                     // your password for authentication / ethereal password
+            user: 'aidan.jones79@ethereal.email',                // your email used for authentication / ethereal user
+            pass: 'kTJbgaYFNP6wcJW4tj',                     // your password for authentication / ethereal password
         },
         tls:{
             rejectUnauthorized: false                       // leave this to false if using GMAIL or service that advanced security enabled
