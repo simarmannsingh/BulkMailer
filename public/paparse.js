@@ -1,5 +1,6 @@
 
-function parsecsv(){
+function parsecsv()
+{
 
     const name_input = document.getElementById('name').value;
     const phone_input = document.getElementById('phone').value;
@@ -7,7 +8,7 @@ function parsecsv(){
     const message_input = document.getElementById('message').value;
     
     // Uncomment this for testing the working with one single email request
-    //sendData(name_input, phone_input, subject_input, message_input, 'abcd@gmail.com');
+    // sendData(name_input, phone_input, subject_input, message_input, 'abcd@gmail.com');
     
     Papa.parse(document.getElementById('upload-csv').files[0], {
         download: true,
@@ -33,7 +34,7 @@ function parsecsv(){
 const sendData = (name_input, phone_input, subject_input, message_input, emailAddress) => {
     sendHttpRequest(name_input, phone_input, subject_input, message_input, emailAddress)
     .then(responseData => {
-        let resp = JSON.parse(xhr.responseData);
+        let resp = JSON.parse(responseData);
         console.log(resp)
     })
     .catch(err => {
@@ -41,7 +42,7 @@ const sendData = (name_input, phone_input, subject_input, message_input, emailAd
     });
 }
 
-sendHttpRequest = (name_input, phone_input, subject_input, message_input, dataObj) => {
+ sendHttpRequest = (name_input, phone_input, subject_input, message_input, dataObj) => {
 
     const promise = new Promise ((resolve, reject) => {
         // Initializing and Setting up XMLHttpRequest paramenters for sending POST request

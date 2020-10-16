@@ -1,41 +1,47 @@
-## About
+## BulkMailer
 
-![Web-app Preview](./Data4Life.png)
+![Web-app Preview](./BulkMailer.png)
 
-This is an web application build for the purpose of participating in the Coding Challenge.
+This is an web application built using HTML/CSS/JS and some third party libraries/packages for sending emails to multiple email address at once. The emails are to be sent in a performant way. So, the worker threads are used for parsing and sending the emails in an asynchronous manner so that main thread does not get unresponsive and all the load of parsing the email list and sending emails would be taken care of by other worker threads. The inbuilt feature of Papaparse.js is used to enable the worker thread.
 
-This web-app uses the following packages / Libraries
+To send the emails, this app uses the following packages for setting up connections, parsing emails and sending the emails.
 - Express
 - NodeMailer
 - PapaParse
 - Express-handlebars
 
-The challenge was 
+For the purpose of testing, a free SMTP account is used - Ethereal mail. It is used to test the sending functionality, so that the official email SMTP account doesn't get banned.
 
-> _"Please write a program in your preferred language that will send out emails to recipients from a huge list (1 Mio entries) in a performant way. You do not need to send real emails but just fake the email sending by waiting for half a second."_
+## How it Started?
 
-Since not much technical information was provided in the challenge itself, following assumptions were made to try to pin point the task.
+It started as a coding challenge for the interview process of a company (a startup) which did not even check this code upon submitting my entry well before deadline. Yes it is sad, but they had already selected some other candidate, just didn't care enough to inform the remaining candidates. Nevermind, this repo has evolved as a Web-app and wishes to be an SPA (Single Page Application) some day.
 
-Assumptions :-
-- free to choose any Framework/library/package. I chose to make a website using HTML/CSS/JS and some third party libraries/packages.
-- 1 million email entries are to be sent. The list of 1 million email entries in the form of a .csv file format and only emails are present and no other data is present in the .csv file.
-- Emails are to be sent in a performant way. So, worker threads can be used for parsing and sending the emails in an asynchronous manner so that main thread does not get unresponsive and all the load of parsing the email list and sending emails would be taken care of by other worker threads. For this, I used the inbuilt feature of Papaparse.js to enable worker thread. Vanilla JS can also be used but the motive here is to get the job done asap as it is not a production application.
-- smtp server doesn't ban the account from which 1 million email entries are sent. For this, I assume I am allowed to use a fake SMTP service - "Ethereal" which receives all the emails meant for other email addresses but doesn't forward them to the real email addresses. It is a testing tool designed for developers. 
+There are some requirements for the .csv file containing the multiple email address. 
+- The file should contain only email address and no other columns
+- The file should not even contain any headers as well. The first line of the .csv file should be an email address.
+- Each Email address should be on a new line.
+- Duplicate email addresses are allowed for now. The app doesn't check for unique email address. This is the planned feature for now.
+- All email addresses should be valid. If the app encounters any invalid email address, it will stop there. This is planned in validations for now.
 
-I've created the web-application which ACTUALLY sends out emails to multiple email addresses, stored in a .csv file (where the .csv file should only contains email, and should not contain other columns like name, address, house number, company etc. The web-app can be adjusted to parse even complex .csv files) and sends the emails in a performant way by using a worker thread which doesn't stall the main thread (stressing the main thread to parse and send 1 million emails would make the web-app / website unresponsive untill the application is done sending all the emails).
+For the sake of clarity, a sample file named "sample1.csv" is provided in the repository. Simply navigate in the repository path to select the file.
+
 
 ## Usage : To test the app
 
 To test the app, you can clone the app in your computer by executing the following command.
 
-    git clone git@github.com:simarmannsingh/Data4Life.git
+    git clone git@github.com:simarmannsingh/BulkMailer.git
 
 
 After cloning the app, go inside the directory by executing
 
-    cd Data4Life/
+    cd BulkMailer/
 
-Then, to simply test the app, start the app using the command
+You need to install all the dependencies so that you can use the app. To do so, execute the following
+
+    npm install
+
+Then after that, to simply test the app, start the app using the command
 
     npm start
 
@@ -49,11 +55,23 @@ To explain breifly, a developement server is created to serve the 'express-handl
 
 ## FAQs
 
-1. Can my SMTP mail server get banned for sending 1 Million emails at once?
+1. How can I change the SMTP account setting to use my own SMTP mail account with this app?  
+It is not very difficult. Simply make the changes in the app.js file (SMTP settings have been marked with comments) to enter your own SMTP settings. It should work fine. A setup page is planned for now.
+
+2. Can my SMTP mail server get banned for sending bulk emails at once?  
 It depends on the plan that you have opted for. Almost all the email providers allow only limited emails to be sent (there is a limit / cap on the emails one can send in an hour) in the free tier exceeding which the email account can surely get banned. But if you are already a premium customer, well enjoy for what you've already paid for. But please don't try if you also have an account with free tier.
 
-2. Can this Web-app be adjusted to allow files to be attached to each email?
-Surely it can be adjusted. Just that it wasn't asked for in the coding challenge.
+3. Can this Web-app be adjusted to allow files to be attached to each email?  
+Yes, Surely it can be adjusted. 
 
-3. Is there any other way to achieve the same results?
+4. Is there any other way to achieve the same results?  
 There are so many ways. A lot of libraries exists that could be used for parsing .csv files n parts (e.g resumable.js, multer ), for sending emails (nodemailer.js, smtp.js) etc. Any other combination can be used to achieve the same results.
+
+## To-do
+- Settings Tab to enter SMTP account settings.
+- Parse any .csv file, even with other data columns like name, surname etc.
+- Find and remove duplicate email address entries in the .csv file
+- Check for valid emails only and skip the invalid email rows.
+
+## Issues
+If you happen to find any issues, please use the issues tab and mark them. You can also post suggestion. Any constructive comment, remark is most welcome.
